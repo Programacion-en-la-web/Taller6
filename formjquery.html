@@ -15,12 +15,12 @@
 <script type="text/javascript">
 function checkPassword(str)
     {          
-        var re =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#|%|/|&]).{,20}/;
+        var re =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,20}/;
         return re.test(str);
     }
     function checkEmail(io)
     {          
-        var re =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[#|%|/|&]).{,20}/;
+        var re =/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{1,20}/;
         return re.test(io);
     }
 
@@ -78,15 +78,12 @@ var minAge = 18;
     function _setAge() {
 
         var age = _calcAge();
-        if(age == ""){
-            if (age < minAge) {
+
+        if (age <= minAge) {
             alert("Usted tiene " + age + " años!");
         } else
 
             alert("Usted tiene " + age + " años!");
-        }else 
-
-            alert("Ingrese su fecha de nacimiento!");
         
     }
 function yesnoCheck() {
@@ -105,8 +102,8 @@ function yesnoCheck() {
         <p>Apellido: <input type="text" name="apellido" maxlength="25"></p>
         <p>Fecha de nacimiento: <input type="date" name="fnacimiento" id="date" placeholder="Ex: yyyy-mm-dd" /><input type="button" value="Calcular edad" onclick="_setAge();" />
         <p>Usuario: <input type="text" name="username" minlength="10" maxlength="20"></p>
-        <p>Contraseña: <input type="password" name="pwd1" minlength="15" maxlength="20"></p>
-        <p>Confirmar contraseña: <input type="password" name="pwd2" minlength="15" maxlength="20"></p>        
+        <p>Contraseña: <input type="password" name="pwd1" minlength="1" maxlength="20"></p>
+        <p>Confirmar contraseña: <input type="password" name="pwd2" minlength="1" maxlength="20"></p>        
 
         <select onchange="yesnoCheck()">
             <option id="noCheck" value="no">No</option>
